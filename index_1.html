@@ -1,0 +1,607 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Peptides & GLP-1s: The Research | The Icy Season</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream: #f7f5f0;
+    --white: #ffffff;
+    --ink: #1a1a1a;
+    --ink-2: #4a4a4a;
+    --ink-3: #8a8a8a;
+    --ink-4: #b8b8b8;
+    --teal: #2a7d6f;
+    --teal-light: #e8f4f1;
+    --teal-mid: #4a9d8f;
+    --red: #c0392b;
+    --red-light: #fdf0ee;
+    --amber: #b8681a;
+    --amber-light: #fdf4e7;
+    --border: #e8e4dc;
+    --border-dark: #d0ccc4;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--cream);
+    color: var(--ink);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+
+  /* NAV */
+  nav {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 16px 0;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .nav-inner {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 28px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .nav-brand {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+  }
+  .nav-mark {
+    width: 32px; height: 32px;
+    background: var(--teal);
+    border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Fraunces', serif;
+    font-size: 14px; font-weight: 600;
+    color: white;
+    letter-spacing: -0.3px;
+  }
+  .nav-name {
+    font-family: 'Fraunces', serif;
+    font-size: 17px; font-weight: 600;
+    color: var(--ink);
+    letter-spacing: -0.2px;
+  }
+  .nav-links { display: flex; gap: 28px; }
+  .nav-links a {
+    font-size: 13px;
+    color: var(--ink-3);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color .15s;
+  }
+  .nav-links a:hover { color: var(--teal); }
+
+  /* CONTAINER */
+  .container {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 28px;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--white);
+    border-bottom: 1px solid var(--border);
+    padding: 72px 0 64px;
+  }
+  .hero .container { display: grid; grid-template-columns: 1fr 340px; gap: 64px; align-items: center; }
+  @media (max-width: 640px) { .hero .container { grid-template-columns: 1fr; gap: 32px; } .hero-visual { display: none; } }
+
+  .hero-eyebrow {
+    display: inline-flex; align-items: center; gap: 6px;
+    font-size: 11px; font-weight: 500;
+    letter-spacing: .1em; text-transform: uppercase;
+    color: var(--teal); margin-bottom: 18px;
+  }
+  .hero-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--teal); }
+
+  .hero h1 {
+    font-family: 'Fraunces', serif;
+    font-size: clamp(30px, 4vw, 44px);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.8px;
+    color: var(--ink);
+    margin-bottom: 18px;
+  }
+  .hero h1 em {
+    font-style: italic;
+    font-weight: 300;
+    color: var(--teal);
+  }
+
+  .hero-sub {
+    font-size: 15px;
+    color: var(--ink-2);
+    line-height: 1.75;
+    margin-bottom: 28px;
+    max-width: 380px;
+  }
+
+  .disclaimer-pill {
+    display: inline-flex; align-items: flex-start; gap: 10px;
+    background: var(--amber-light);
+    border: 1px solid rgba(184,104,26,0.2);
+    border-radius: 10px;
+    padding: 12px 16px;
+    font-size: 12px;
+    color: var(--amber);
+    line-height: 1.6;
+    max-width: 420px;
+  }
+  .disclaimer-pill b { font-weight: 500; }
+
+  .hero-visual {
+    display: flex; flex-direction: column; gap: 10px;
+  }
+  .hero-stat-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 18px;
+  }
+  .hsc-num {
+    font-family: 'Fraunces', serif;
+    font-size: 32px; font-weight: 600;
+    letter-spacing: -1px;
+    line-height: 1;
+    margin-bottom: 4px;
+  }
+  .hsc-num.teal { color: var(--teal); }
+  .hsc-num.red { color: var(--red); }
+  .hsc-num.amber { color: var(--amber); }
+  .hsc-label { font-size: 12px; color: var(--ink-2); line-height: 1.5; }
+  .hsc-source { font-size: 10px; color: var(--ink-4); margin-top: 6px; }
+
+  /* SECTION */
+  .section { padding: 64px 0 0; }
+  .section-header { margin-bottom: 32px; }
+  .section-num {
+    font-size: 11px; font-weight: 500;
+    letter-spacing: .12em; text-transform: uppercase;
+    color: var(--ink-4); margin-bottom: 8px;
+  }
+  .section-title {
+    font-family: 'Fraunces', serif;
+    font-size: 28px; font-weight: 600;
+    letter-spacing: -0.5px;
+    color: var(--ink);
+    line-height: 1.2;
+  }
+  .section-title em { font-style: italic; font-weight: 300; color: var(--teal); }
+
+  /* FACT CARDS */
+  .fact-grid { display: flex; flex-direction: column; gap: 10px; margin-bottom: 10px; }
+  .fact-row { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; }
+  @media (max-width: 540px) { .fact-row { grid-template-columns: 1fr; } }
+
+  .fact {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 22px 24px;
+    transition: border-color .15s, box-shadow .15s;
+  }
+  .fact:hover { border-color: var(--border-dark); box-shadow: 0 2px 16px rgba(0,0,0,0.04); }
+
+  .fact.teal { border-top: 3px solid var(--teal); }
+  .fact.red { border-top: 3px solid var(--red); }
+  .fact.amber { border-top: 3px solid var(--amber); }
+
+  .fact-tag {
+    display: inline-block;
+    font-size: 10px; font-weight: 500;
+    letter-spacing: .08em; text-transform: uppercase;
+    border-radius: 20px; padding: 3px 10px;
+    margin-bottom: 12px;
+  }
+  .fact-tag.teal { background: var(--teal-light); color: var(--teal); }
+  .fact-tag.red { background: var(--red-light); color: var(--red); }
+  .fact-tag.amber { background: var(--amber-light); color: var(--amber); }
+
+  .fact-stat {
+    font-family: 'Fraunces', serif;
+    font-size: 40px; font-weight: 600;
+    letter-spacing: -1.5px; line-height: 1;
+    margin-bottom: 8px;
+  }
+  .fact-stat.teal { color: var(--teal); }
+  .fact-stat.red { color: var(--red); }
+  .fact-stat.amber { color: var(--amber); }
+
+  .fact-title {
+    font-size: 15px; font-weight: 500;
+    color: var(--ink);
+    line-height: 1.45; margin-bottom: 8px;
+  }
+  .fact-body {
+    font-size: 13.5px; color: var(--ink-2);
+    line-height: 1.7; margin-bottom: 14px;
+  }
+  .fact-source {
+    font-size: 11px; color: var(--ink-4);
+    border-top: 1px solid var(--border);
+    padding-top: 10px; line-height: 1.6;
+  }
+  .fact-source b { font-weight: 500; color: var(--ink-3); }
+  .fact-source a {
+    color: var(--teal);
+    text-decoration: none;
+    border-bottom: 1px solid rgba(42,125,111,0.3);
+    transition: border-color .15s;
+  }
+  .fact-source a:hover { border-color: var(--teal); }
+
+  /* CALLOUT */
+  .callout {
+    border-radius: 12px; padding: 18px 22px;
+    margin: 10px 0;
+    display: flex; gap: 14px; align-items: flex-start;
+  }
+  .callout.teal { background: var(--teal-light); border: 1px solid rgba(42,125,111,0.15); }
+  .callout.red { background: var(--red-light); border: 1px solid rgba(192,57,43,0.15); }
+  .callout.amber { background: var(--amber-light); border: 1px solid rgba(184,104,26,0.15); }
+  .callout-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .callout-text { font-size: 13.5px; line-height: 1.7; }
+  .callout.teal .callout-text { color: var(--teal); }
+  .callout.red .callout-text { color: var(--red); }
+  .callout.amber .callout-text { color: var(--amber); }
+  .callout-text b { font-weight: 500; }
+
+  /* COMPARISON */
+  .compare {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    overflow: hidden;
+    margin-top: 10px;
+  }
+  .compare-head {
+    display: grid; grid-template-columns: 1.5fr 1fr 1fr;
+    background: var(--cream);
+    border-bottom: 1px solid var(--border);
+  }
+  .compare-head div {
+    padding: 12px 18px;
+    font-size: 11px; font-weight: 500;
+    letter-spacing: .07em; text-transform: uppercase;
+    color: var(--ink-3);
+  }
+  .compare-head div:not(:last-child) { border-right: 1px solid var(--border); }
+  .compare-row {
+    display: grid; grid-template-columns: 1.5fr 1fr 1fr;
+    border-bottom: 1px solid var(--border);
+  }
+  .compare-row:last-child { border-bottom: none; }
+  .compare-row div {
+    padding: 13px 18px; font-size: 13px; line-height: 1.5; vertical-align: top;
+  }
+  .compare-row div:not(:last-child) { border-right: 1px solid var(--border); }
+  .compare-row div:first-child { font-weight: 500; color: var(--ink-2); }
+  .yes { color: var(--teal); font-weight: 500; }
+  .no { color: var(--red); font-weight: 500; }
+  .maybe { color: var(--amber); font-weight: 500; }
+
+  /* STUDIES */
+  .study-list { display: flex; flex-direction: column; gap: 8px; }
+  .study {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 16px 20px;
+    display: flex; gap: 16px;
+    transition: border-color .15s;
+  }
+  .study:hover { border-color: var(--border-dark); }
+  .study-num {
+    font-family: 'Fraunces', serif;
+    font-size: 15px; font-weight: 600;
+    color: var(--ink-4); min-width: 20px;
+    padding-top: 1px;
+  }
+  .study-body { flex: 1; }
+  .study-cat {
+    display: inline-block;
+    font-size: 10px; font-weight: 500;
+    letter-spacing: .07em; text-transform: uppercase;
+    border-radius: 20px; padding: 2px 9px;
+    margin-bottom: 6px;
+  }
+  .study-cat.peptide { background: var(--amber-light); color: var(--amber); }
+  .study-cat.glp { background: var(--teal-light); color: var(--teal); }
+  .study-cat.regain { background: var(--red-light); color: var(--red); }
+  .study-title { font-size: 14px; font-weight: 500; color: var(--ink); line-height: 1.45; margin-bottom: 3px; }
+  .study-meta { font-size: 12px; color: var(--ink-3); margin-bottom: 3px; }
+  .study-claim { font-size: 12px; color: var(--ink-3); font-style: italic; }
+
+  /* DIVIDER */
+  .divider {
+    height: 1px; background: var(--border);
+    margin: 64px 0 0;
+  }
+
+  /* PHYSICIAN */
+  .physician {
+    background: var(--teal);
+    border-radius: 16px;
+    padding: 36px 36px;
+    margin: 48px 0 0;
+    text-align: center;
+    color: white;
+  }
+  .physician-icon { font-size: 32px; margin-bottom: 14px; }
+  .physician-title {
+    font-family: 'Fraunces', serif;
+    font-size: 22px; font-weight: 600;
+    letter-spacing: -0.3px;
+    margin-bottom: 10px;
+  }
+  .physician-text { font-size: 14px; line-height: 1.75; opacity: .85; max-width: 500px; margin: 0 auto; }
+
+  /* FOOTER */
+  footer {
+    margin-top: 80px;
+    padding: 36px 0 48px;
+    border-top: 1px solid var(--border);
+    background: var(--white);
+  }
+  .footer-inner {
+    max-width: 760px; margin: 0 auto; padding: 0 28px;
+    display: flex; flex-direction: column; align-items: center; gap: 12px;
+  }
+  .footer-brand {
+    font-family: 'Fraunces', serif;
+    font-size: 18px; font-weight: 600;
+    color: var(--teal); letter-spacing: -0.2px;
+  }
+  .footer-text { font-size: 12px; color: var(--ink-4); text-align: center; line-height: 1.8; max-width: 380px; }
+  .footer-links { display: flex; gap: 24px; }
+  .footer-links a { font-size: 12px; color: var(--ink-3); text-decoration: none; transition: color .15s; }
+  .footer-links a:hover { color: var(--teal); }
+
+  /* FADE */
+  @keyframes up { from { opacity:0; transform:translateY(14px); } to { opacity:1; transform:none; } }
+  .fade { animation: up .5s ease both; }
+  .d1{animation-delay:.05s}.d2{animation-delay:.1s}.d3{animation-delay:.15s}.d4{animation-delay:.2s}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-inner">
+    <a href="#" class="nav-brand">
+      <div class="nav-mark">IS</div>
+      <span class="nav-name">The Icy Season</span>
+    </a>
+    <div class="nav-links">
+      <a href="#peptides">Peptides</a>
+      <a href="#glp1">GLP-1s</a>
+      <a href="#studies">Studies</a>
+    </div>
+  </div>
+</nav>
+
+<div class="hero">
+  <div class="container">
+    <div class="hero-left">
+      <div class="hero-eyebrow"><div class="hero-dot"></div> Evidence-based resources</div>
+      <h1>Peptides and GLP-1s<br><em>what the research says</em></h1>
+      <p class="hero-sub">Every fact on this page is sourced directly from peer-reviewed clinical research. No opinions. Just the science.</p>
+      <div class="disclaimer-pill">
+        <span>⚕</span>
+        <span><b>Medical disclaimer:</b> This page is for educational purposes only. Nothing here constitutes medical advice. Always consult a licensed physician before making decisions about medications or supplements.</span>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="hero-stat-card fade d1">
+        <div class="hsc-num teal">~18%</div>
+        <div class="hsc-label">Average weight loss with tirzepatide in clinical trials</div>
+        <div class="hsc-source">NEJM SURMOUNT-1, 2022</div>
+      </div>
+      <div class="hero-stat-card fade d2">
+        <div class="hsc-num red">9.7 kg</div>
+        <div class="hsc-label">Average weight regained after stopping GLP-1 therapy</div>
+        <div class="hsc-source">BMJ meta-analysis, 2025</div>
+      </div>
+      <div class="hero-stat-card fade d3">
+        <div class="hsc-num amber">23%</div>
+        <div class="hsc-label">Of online peptide products are contaminated or mislabeled</div>
+        <div class="hsc-source">Peptides journal, 2023</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- PEPTIDES -->
+  <div class="section" id="peptides">
+    <div class="section-header">
+      <div class="section-num">Section 01</div>
+      <div class="section-title">Gray-market <em>peptides</em></div>
+    </div>
+
+    <div class="fact-grid">
+
+      <div class="fact red fade">
+        <div class="fact-tag red">Regulatory status</div>
+        <div class="fact-stat red">0</div>
+        <div class="fact-title">FDA-approved human uses for BPC-157, TB-500, and CJC-1295</div>
+        <div class="fact-body">The peptides trending on social media have not been approved for human use by the FDA or Health Canada. They are sold as "research chemicals" to avoid regulatory oversight. Any human use is entirely off-label with no studied clinical data in human populations.</div>
+        <div class="fact-source"><b>Source:</b> <a href="https://www.fda.gov/drugs/drug-approvals-and-databases/drugsfda-data-files" target="_blank">FDA regulatory database</a>; <a href="https://health-products.canada.ca/dpd-bdpp/index-eng.jsp" target="_blank">Health Canada drug product database</a>, 2024</div>
+      </div>
+
+      <div class="fact-row">
+        <div class="fact amber fade">
+          <div class="fact-tag amber">Product safety</div>
+          <div class="fact-stat amber">23%</div>
+          <div class="fact-title">Of online peptide products are contaminated or mislabeled</div>
+          <div class="fact-body">Independent analysis found nearly one in four products failed quality testing.</div>
+          <div class="fact-source"><b>Source:</b> <a href="https://pubmed.ncbi.nlm.nih.gov/" target="_blank">Peptides journal, 2023</a></div>
+        </div>
+        <div class="fact amber fade">
+          <div class="fact-tag amber">Market trend</div>
+          <div class="fact-stat amber">208%</div>
+          <div class="fact-title">Increase in online ads for unregulated peptides in 2024</div>
+          <div class="fact-body">Social media posts promoting sales grew 75% year over year in the same period.</div>
+          <div class="fact-source"><b>Source:</b> <a href="https://ppc.land/unapproved-peptides-ads-surge-208-as-marketplaces-see-276-sales-growth/" target="_blank">LegitScript digital health market analysis, 2024</a></div>
+        </div>
+      </div>
+
+      <div class="callout red">
+        <div class="callout-icon">⚠️</div>
+        <div class="callout-text"><b>BPC-157 promotes angiogenesis</b>, the growth of new blood vessels. This is also the primary mechanism tumors use to establish blood supply and spread. No long-term human safety data exists to evaluate this risk.</div>
+      </div>
+
+      <div class="fact red fade">
+        <div class="fact-tag red">Route of administration</div>
+        <div class="fact-title">Why injection changes everything</div>
+        <div class="fact-body">Water is safe to drink. However, injecting water directly into the bloodstream in sufficient volume can cause fatal hemolysis — the rupturing of red blood cells. This illustrates a core principle of pharmacology: a substance that is safe or beneficial by one route can be dangerous or fatal by another. Gray-market peptides are predominantly injectable, often from unverified sources, in unstudied human doses. The same compound that appears benign in an oral animal study carries an entirely different risk profile when injected without medical supervision.</div>
+        <div class="fact-source"><b>Source:</b> Basic pharmacology and toxicology principles; <a href="https://pubmed.ncbi.nlm.nih.gov/30195551/" target="_blank">Journal of Emergency Medicine, 2019</a></div>
+      </div>
+
+      <div class="callout amber">
+        <div class="callout-icon">🔬</div>
+        <div class="callout-text"><b>Evidence base:</b> The vast majority of research cited for gray-market peptides comes from rodent studies. Results from animal models do not reliably translate to human outcomes. No trending peptide has completed a phase 3 human clinical trial. Testimonials are not clinical evidence.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- GLP-1 -->
+  <div class="section" id="glp1">
+    <div class="section-header">
+      <div class="section-num">Section 02</div>
+      <div class="section-title">GLP-1 receptor <em>agonists</em></div>
+    </div>
+
+    <div class="fact-grid">
+
+      <div class="fact teal fade">
+        <div class="fact-tag teal">FDA approved</div>
+        <div class="fact-title">What GLP-1s actually are</div>
+        <div class="fact-body">GLP-1 receptor agonists like semaglutide (Ozempic, Wegovy) and tirzepatide (Mounjaro, Zepbound) are legitimate FDA-approved prescription medications developed for type 2 diabetes and obesity management. They have been studied in tens of thousands of patients across 40+ phase 3 clinical trials. These are not supplements and are not comparable to gray-market peptides.</div>
+        <div class="fact-source"><b>Source:</b> <a href="https://www.fda.gov/drugs/drug-approvals-and-databases/drugsfda-data-files" target="_blank">FDA drug approval database</a>; <a href="https://pubmed.ncbi.nlm.nih.gov/33567185/" target="_blank">NEJM, 2021</a></div>
+      </div>
+
+      <div class="fact-row">
+        <div class="fact teal fade">
+          <div class="fact-tag teal">Efficacy</div>
+          <div class="fact-stat teal">~12%</div>
+          <div class="fact-title">Average weight loss with semaglutide vs placebo</div>
+          <div class="fact-body">From the STEP 1 trial, the largest of its kind.</div>
+          <div class="fact-source"><b>Source:</b> <a href="https://pubmed.ncbi.nlm.nih.gov/33567185/" target="_blank">NEJM STEP 1 trial, 2021</a></div>
+        </div>
+        <div class="fact teal fade">
+          <div class="fact-tag teal">Efficacy</div>
+          <div class="fact-stat teal">~18%</div>
+          <div class="fact-title">Average weight loss with tirzepatide vs placebo</div>
+          <div class="fact-body">From the SURMOUNT-1 trial. Highest efficacy recorded for any non-surgical obesity intervention.</div>
+          <div class="fact-source"><b>Source:</b> <a href="https://pubmed.ncbi.nlm.nih.gov/35658024/" target="_blank">NEJM SURMOUNT-1 trial, 2022</a></div>
+        </div>
+      </div>
+
+      <div class="fact red fade">
+        <div class="fact-tag red">After stopping</div>
+        <div class="fact-stat red">9.7 kg</div>
+        <div class="fact-title">Average weight regained after stopping GLP-1 therapy</div>
+        <div class="fact-body">A 2025 systematic review and meta-analysis found stopping semaglutide or tirzepatide led to an average regain of 9.7 kg. Real-world data shows approximately two thirds of lost weight returns within six months. An Oxford study projected return to baseline weight within approximately 1.5 years of stopping. Blood pressure, cholesterol, and blood sugar improvements also reverse in proportion to weight regained. Current clinical guidelines increasingly classify obesity as a chronic condition requiring long-term pharmacological management rather than a short-term course of treatment.</div>
+        <div class="fact-source"><b>Source:</b> <a href="https://www.ox.ac.uk/news/2026-01-08-new-study-finds-stopping-weight-loss-drugs-linked-faster-regain-ending-diet" target="_blank">BMJ, Oxford University, 2025</a>; <a href="https://pubmed.ncbi.nlm.nih.gov/35441470/" target="_blank">Diabetes, Obesity and Metabolism, 2022</a></div>
+      </div>
+
+      <div class="fact amber fade">
+        <div class="fact-tag amber">Clinical criteria</div>
+        <div class="fact-title">Who these medications were designed for</div>
+        <div class="fact-body">FDA and WHO guidelines indicate pharmacological treatment for individuals with a BMI of 30 or higher, or BMI 27 or higher with at least one weight-related condition such as type 2 diabetes, hypertension, high cholesterol, or obstructive sleep apnea. All clinical trials that produced the efficacy numbers above studied these populations specifically. There are no completed clinical trials examining outcomes in healthy-weight individuals without metabolic conditions.</div>
+        <div class="fact-source"><b>Source:</b> <a href="https://www.who.int/news/item/01-12-2025-who-issues-global-guideline-on-the-use-of-glp-1-medicines-in-treating-obesity" target="_blank">WHO obesity guidelines, 2025</a>; <a href="https://www.accessdata.fda.gov/drugsatfda_docs/label/2021/215256s000lbl.pdf" target="_blank">FDA prescribing information for semaglutide</a></div>
+      </div>
+
+      <div class="callout red">
+        <div class="callout-icon">⚠️</div>
+        <div class="callout-text"><b>Compounded and influencer versions:</b> Compounded GLP-1 products sold online or via unvetted telehealth providers do not undergo FDA safety or quality review. GLP-1 patches promoted on social media are not supported by pharmacokinetic evidence. GLP-1 molecules cannot be absorbed through the skin. Microdosing protocols have not demonstrated therapeutic plasma concentrations in any published research.</div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- COMPARE -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">Section 03</div>
+      <div class="section-title">Side by side <em>comparison</em></div>
+    </div>
+    <div class="compare">
+      <div class="compare-head">
+        <div>Factor</div>
+        <div>GLP-1 drugs</div>
+        <div>Gray-market peptides</div>
+      </div>
+      <div class="compare-row"><div>FDA approved</div><div class="yes">Yes</div><div class="no">No</div></div>
+      <div class="compare-row"><div>Human clinical trial data</div><div class="yes">Extensive (40+ trials)</div><div class="no">Essentially none</div></div>
+      <div class="compare-row"><div>Requires prescription</div><div class="yes">Yes</div><div class="no">Sold as research chemicals</div></div>
+      <div class="compare-row"><div>Known side effects</div><div class="maybe">Well documented</div><div class="no">Unknown long-term</div></div>
+      <div class="compare-row"><div>Product purity guaranteed</div><div class="yes">Yes (branded)</div><div class="no">Up to 23% contaminated</div></div>
+      <div class="compare-row"><div>Evidence in healthy-weight individuals</div><div class="no">None</div><div class="no">None</div></div>
+      <div class="compare-row"><div>Approved in competitive sport</div><div class="maybe">Not prohibited</div><div class="no">WADA prohibited list</div></div>
+    </div>
+  </div>
+
+  <div class="divider"></div>
+
+  <!-- WHAT WORKS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-num">Section 04</div>
+      <div class="section-title">What the evidence <em>actually supports</em></div>
+    </div>
+    <div class="fact-grid">
+      <div class="fact teal fade">
+        <div class="fact-tag teal">Evidence-based foundations</div>
+        <div class="fact-title">For most people, the fundamentals have the strongest evidence base</div>
+        <div class="fact-body">Decades of peer-reviewed research consistently support resistance training for body composition, muscle preservation, and metabolic health. Adequate protein intake (1.6 to 2.2g per kg of bodyweight) supports muscle protein synthesis and satiety. Quality sleep of 7 to 9 hours regulates the hunger hormones ghrelin and leptin. Creatine monohydrate remains one of the most studied and consistently effective supplements available. These interventions have no dependency risk, no unknown contamination, and no requirement for ongoing pharmaceutical use to maintain results.</div>
+        <div class="fact-source"><b>Source:</b> <a href="https://jissn.biomedcentral.com/articles/10.1186/s12970-017-0177-8" target="_blank">International Society of Sports Nutrition position stand on protein, 2017</a>; <a href="https://pubmed.ncbi.nlm.nih.gov/28615996/" target="_blank">ISSN position stand on creatine, 2017</a></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- PHYSICIAN BLOCK -->
+  <div class="physician fade">
+    <div class="physician-icon">🩺</div>
+    <div class="physician-title">Always speak to your physician first</div>
+    <div class="physician-text">Every individual's health situation is different. The research on this page applies to studied populations under clinical conditions. Before considering any medication, supplement, or injectable compound, consult a licensed physician who knows your full medical history. This page is educational only and does not constitute medical advice of any kind.</div>
+  </div>
+
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">The Icy Season</div>
+    <div class="footer-text">Evidence-based fitness and wellness. Personal trainer and NASM nutrition certification candidate. All content is educational and sourced from peer-reviewed research. Always consult a healthcare provider before making medical decisions.</div>
+    <div class="footer-links">
+      <a href="https://instagram.com/theicyseason" target="_blank">Instagram</a>
+      <a href="https://tiktok.com/@theicyseason" target="_blank">TikTok</a>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
